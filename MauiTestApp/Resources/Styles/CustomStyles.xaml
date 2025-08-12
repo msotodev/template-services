@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					xmlns:converter="clr-namespace:MauiTestApp.Handlers.Converters"
+                    x:Class="MauiTestApp.Resources.Styles.CustomStyles">
+
+	<!-- Variables -->
+	<x:String x:Key="material-icons-font">MaterialIconsRegular</x:String>
+
+	<!-- Grid Styles -->
+
+	<Style x:Key="grid-content" TargetType="Grid">
+		<Setter Property="BackgroundColor" Value="AliceBlue" />
+		<Setter Property="Padding" Value="10, 15" />
+	</Style>
+	
+	<!--  Border Styles  -->
+
+	<Style x:Key="border-top-rounded" TargetType="Border">
+		<Setter Property="Padding" Value="15, 20, 15, 0" />
+		<Setter Property="Margin" Value="10, 0" />
+		<Setter Property="StrokeShape">
+			<Setter.Value>
+				<RoundRectangle CornerRadius="10, 10, 0, 0" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="StrokeThickness" Value="0" />
+		<Setter Property="BackgroundColor" Value="AliceBlue" />
+		<Setter Property="Shadow" Value="10, 0, 0, White" />
+		<Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1" />
+		<Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+	</Style>
+
+	<Style x:Key="border-rounded" TargetType="Border">
+		<Setter Property="Padding" Value="10, 12" />
+		<Setter Property="StrokeShape">
+			<Setter.Value>
+				<RoundRectangle CornerRadius="10" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="StrokeThickness" Value="0" />
+		<Setter Property="BackgroundColor" Value="White" />
+		<Setter Property="Shadow" Value="10, 0, 0, White" />
+		<Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1" />
+		<Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+	</Style>
+
+	<converter:BytesConverter x:Key="bytesConverter" />
+</ResourceDictionary>

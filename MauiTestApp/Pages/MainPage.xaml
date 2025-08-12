@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   x:DataType="viewmodels:MainPageViewModel"
+			   x:TypeArguments="viewmodels:MainPageViewModel"
+			   x:Class="MauiTestApp.Pages.MainPage">
+
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="10">
+			<Image Source="dotnet_bot.png"
+				   HeightRequest="185"
+				   Aspect="AspectFit"
+				   SemanticProperties.Description="dot net bot in a race car number eight" />
+
+			<Button Text="Bluetooth"
+					Command="{Binding BluetoothCommand}" />
+			
+			<Button Text="Code"
+					Command="{Binding CodeCommand}" />
+
+			<Button Text="Dialog"
+					Command="{Binding DialogCommand}" />
+
+			<Button Text="Permission"
+					Command="{Binding PermissionCommand}" />
+		</VerticalStackLayout>
+	</Grid>
+
+</page:BasePage>

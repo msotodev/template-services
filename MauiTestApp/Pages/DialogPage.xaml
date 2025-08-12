@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   x:Class="MauiTestApp.Pages.DialogPage"
+			   x:DataType="viewmodels:DialogPageViewModel"
+			   x:TypeArguments="viewmodels:DialogPageViewModel"
+			   Title="Dialogs">
+	
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="10">
+			<Label Text="Fixed" />
+
+			<VerticalStackLayout Spacing="5">
+				<Button Text="Information"
+						Command="{Binding FixedInfoCommand}" />
+
+				<Button Text="Error"
+						Command="{Binding FixedErrorCommand}" />
+
+				<Button Text="Warning"
+						Command="{Binding FixedWarningCommand}" />
+
+				<Button Text="Confirmation"
+						Command="{Binding FixedConfirmCommand}" />
+
+				<Button Text="Prompt"
+						Command="{Binding FixedPromptCommand}" />
+			</VerticalStackLayout>
+
+			<Label Text="Transitive" />
+
+			<VerticalStackLayout Spacing="5">
+				<Button Text="Information"
+						Command="{Binding TransitiveInfoCommand}" />
+
+				<Button Text="Error"
+						Command="{Binding TransitiveErrorCommand}" />
+
+				<Button Text="Warning"
+						Command="{Binding TransitiveWarningCommand}" />
+			</VerticalStackLayout>
+		</VerticalStackLayout>
+	</Grid>
+	
+</page:BasePage>

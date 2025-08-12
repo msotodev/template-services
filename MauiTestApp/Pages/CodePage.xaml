@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   x:Class="MauiTestApp.Pages.CodePage"
+			   x:DataType="viewmodels:CodePageViewModel"
+			   x:TypeArguments="viewmodels:CodePageViewModel"
+			   Title="Codes">
+
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="10">
+			<Entry Text="{Binding Text}" />
+
+			<Label Text="Barcode" />
+			<Image Source="{Binding Barcode, Converter={StaticResource bytesConverter}}"
+				   HeightRequest="100"
+				   Aspect="AspectFit" />
+
+			<Button Text="Generate Barcode"
+					Command="{Binding GenerateBarcodeCommand}" />
+
+			<FlexLayout JustifyContent="SpaceBetween">
+				<Label Text="QR code" />
+
+				<HorizontalStackLayout Spacing="5">
+					<Switch IsToggled="{Binding Rounded}" />
+					<Label Text="Rounded" />
+				</HorizontalStackLayout>
+			</FlexLayout>
+			<Image Source="{Binding QrCode, Converter={StaticResource bytesConverter}}"
+				   HeightRequest="100"
+				   Aspect="AspectFit" />
+
+			<Button Text="Generate QR"
+					Command="{Binding GenerateQRCodeCommand}" />
+		</VerticalStackLayout>
+	</Grid>
+	
+</page:BasePage>

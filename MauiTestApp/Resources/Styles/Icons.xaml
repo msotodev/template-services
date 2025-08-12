@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+					xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					xmlns:icons="clr-namespace:MauiTestApp.Handlers.Icons"
+					x:Class="MauiTestApp.Resources.Styles.IconsStyles">
+
+	<x:String x:Key="material-icons-font">MaterialIconsRegular</x:String>
+
+	<FontImageSource x:Key="chevron-right-icon-light"
+					 Glyph="{Static icons:IconFont.Chevron_right}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="chevron-right-icon-light-large"
+					 Glyph="{Static icons:IconFont.Chevron_right}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="White" />
+
+	<FontImageSource x:Key="chevron-right-icon-dark"
+					 Glyph="{Static icons:IconFont.Chevron_right}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="close-icon-dark"
+					 Glyph="{Static icons:IconFont.Close}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="25"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="delete-icon-dark"
+					 Glyph="{Static icons:IconFont.Delete}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="delete-icon-light"
+					 Glyph="{Static icons:IconFont.Delete}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="no-account-icon-dark"
+					 Glyph="{Static icons:IconFont.No_accounts}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="45"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="add-icon-light"
+					 Glyph="{Static icons:IconFont.Add}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="25"
+					 Color="White" />
+
+	<FontImageSource x:Key="add-icon-light-small"
+					 Glyph="{Static icons:IconFont.Add}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="White" />
+
+	<FontImageSource x:Key="add-icon-dark"
+					 Glyph="{Static icons:IconFont.Add}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="edit-icon-dark"
+					 Glyph="{Static icons:IconFont.Edit}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="edit-icon-light"
+					 Glyph="{Static icons:IconFont.Edit}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="location-pin-icon-light"
+					 Glyph="{Static icons:IconFont.Location_pin}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="keyboard-arrow-down-icon-dark"
+					 Glyph="{Static icons:IconFont.Keyboard_arrow_down}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="25"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="home-icon-light"
+					 Glyph="{Static icons:IconFont.Home}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="manage-search-icon-light"
+					 Glyph="{Static icons:IconFont.Manage_search}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="pageview-icon-light"
+					 Glyph="{Static icons:IconFont.Pageview}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="policy-icon-light"
+					 Glyph="{Static icons:IconFont.Policy}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="query-stats-icon-light"
+					 Glyph="{Static icons:IconFont.Query_stats}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="gavel-icon-light"
+					 Glyph="{Static icons:IconFont.Gavel}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="help-center-icon-light"
+					 Glyph="{Static icons:IconFont.Help_center}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="info-icon-light"
+					 Glyph="{Static icons:IconFont.Info}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="wallet-icon-light"
+					 Glyph="{Static icons:IconFont.Wallet}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="person-icon-light"
+					 Glyph="{Static icons:IconFont.Person}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="person-icon-light-large"
+					 Glyph="{Static icons:IconFont.Person}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="45"
+					 Color="White" />
+
+	<FontImageSource x:Key="person-icon-dark-large"
+					 Glyph="{Static icons:IconFont.Person}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="45"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="credit-card-icon-light"
+					 Glyph="{Static icons:IconFont.Credit_card}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="credit-card-icon-dark"
+					 Glyph="{Static icons:IconFont.Credit_card}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="28"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="directions-car-icon-light"
+					 Glyph="{Static icons:IconFont.Directions_car}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="currency-exchange-icon-light"
+					 Glyph="{Static icons:IconFont.Currency_exchange}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="local-parking-icon-light"
+					 Glyph="{Static icons:IconFont.Local_parking}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="20"
+					 Color="White" />
+
+	<FontImageSource x:Key="schedule-icon-dark"
+					 Glyph="{Static icons:IconFont.Schedule}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="pin-drop-icon-dark"
+					 Glyph="{Static icons:IconFont.Pin_drop}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="location-searching-icon-dark"
+					 Glyph="{Static icons:IconFont.Location_searching}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="directions-car-icon-dark"
+					 Glyph="{Static icons:IconFont.Directions_car}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="confirmation-number-icon-dark"
+					 Glyph="{Static icons:IconFont.Confirmation_number}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="sentiment-satisfied-icon-dark"
+					 Glyph="{Static icons:IconFont.Sentiment_satisfied}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="sentiment-dissatisfied-icon-dark"
+					 Glyph="{Static icons:IconFont.Sentiment_dissatisfied}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="sentiment-neutral-icon-dark"
+					 Glyph="{Static icons:IconFont.Sentiment_neutral}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="search-icon-dark"
+					 Glyph="{Static icons:IconFont.Search}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="hourglass-top-icon-dark"
+					 Glyph="{Static icons:IconFont.Hourglass_top}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="hourglass-bottom-icon-dark"
+					 Glyph="{Static icons:IconFont.Hourglass_bottom}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="phonelink-erase-icon-dark"
+					 Glyph="{Static icons:IconFont.Phonelink_erase}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="30"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="swipe-left-icon-dark"
+					 Glyph="{Static icons:IconFont.Swipe_left}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="15"
+					 Color="{DynamicResource Primary}" />
+
+
+	<FontImageSource x:Key="notes-icon-dark-large"
+					 Glyph="{Static icons:IconFont.Notes}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="45"
+					 Color="{DynamicResource Primary}" />
+
+	<FontImageSource x:Key="notes-icon-light-large"
+					 Glyph="{Static icons:IconFont.Notes}"
+					 FontFamily="{StaticResource material-icons-font}"
+					 Size="45"
+					 Color="{DynamicResource White}" />
+</ResourceDictionary>
