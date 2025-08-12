@@ -1,101 +1,96 @@
-﻿using QRCoder;
+﻿using MauiTestApp.Extensions;
+using QRCoder;
 using SkiaSharp;
+using System.Collections;
 using TemplateServices.Core.Services.App;
-using ZXing.SkiaSharp;
 using static QRCoder.QRCodeGenerator;
 using static TemplateServices.Core.Models.Types.QRCodeTypes;
+using Color = System.Drawing.Color;
 
 namespace MauiTestApp.Services.App
 {
 	public class QRCoderService : IQRCodeService
 	{
 		public Task<byte[]> GenerateAsync(
-			string text, int pixelsPerModule = 20, CorrectionLevelType correctionLevel = CorrectionLevelType.Low
+			string text,
+			int size,
+			Color? backgroundColor = null,
+			Color? foregroundColor = null,
+			bool rounded = false,
+			CorrectionLevelType correctionLevel = CorrectionLevelType.Low
 		)
 		{
 			ECCLevel eCCLevel = GetECCLevel(correctionLevel);
 
-			using QRCodeGenerator qRCodeGenerator = new();
-			using QRCodeData data = qRCodeGenerator.CreateQrCode(text, eCCLevel);
-			using PngByteQRCode pngByteQRCode = new(data);
-
-			byte[] bytes = pngByteQRCode.GetGraphic(pixelsPerModule);
-
-			return Task.FromResult(bytes);
-		}
-
-		public Task<byte[]> GenerateRoundedAsync(
-			string text, int size = 200, CorrectionLevelType correctionLevel = CorrectionLevelType.Low
-		)
-		{
-			return Task.Run(() =>
+			if (!rounded)
 			{
-				var writer = new BarcodeWriter
-				{
-					Format = ZXing.BarcodeFormat.QR_CODE,
-					Options = new ZXing.QrCode.QrCodeEncodingOptions
-					{
-						Width = size,
-						Height = size,
-						Margin = 0,
-						ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.M
-					}
-				};
+				using QRCodeGenerator qRCodeGenerator = new();
+				using QRCodeData data = qRCodeGenerator.CreateQrCode(text, eCCLevel);
+				using PngByteQRCode pngByteQRCode = new(data);
 
-				using SKBitmap qrBitmap = writer.Write(text);
+				byte[] bytes = pngByteQRCode.GetGraphic(
+					pixelsPerModule: 10,
+					darkColor: foregroundColor ?? Color.Black,
+					lightColor: backgroundColor ?? Color.White
+				);
 
-				return CreateRoundedVersion(qrBitmap, size);
-			});
+				return ResizeIfNeeded(bytes, size);
+			}
+			else
+			{
+				using QRCodeGenerator qrGenerator = new();
+				using QRCodeData qrCodeData = qrGenerator.CreateQrCode(
+					text, eCCLevel
+				);
+
+				byte[] result = RenderRoundedQr(
+					qrCodeData.ModuleMatrix, size, backgroundColor, foregroundColor
+				);
+
+				return Task.FromResult(result);
+			}
 		}
 
 		/**/
 
-		private static ECCLevel GetECCLevel(
-			CorrectionLevelType correctionLevel
-		) => correctionLevel switch
-		{
-			CorrectionLevelType.Low => ECCLevel.L,
-			CorrectionLevelType.Medium => ECCLevel.M,
-			CorrectionLevelType.Quartile => ECCLevel.Q,
-			CorrectionLevelType.High => ECCLevel.H,
-			_ => ECCLevel.L
-		};
-
-		private static byte[] CreateRoundedVersion(
-			SKBitmap originalBitmap, int size
+		private static byte[] RenderRoundedQr(
+			List<BitArray> moduleMatrix,
+			int size,
+			Color? backgroundColor,
+			Color? foregroundColor
 		)
 		{
+			int modules = moduleMatrix.Count;
+			float moduleSize = (float)size / modules;
+			float cornerRadius = moduleSize * 0.3f;
+
 			SKImageInfo info = new(size, size);
 			using SKSurface surface = SKSurface.Create(info);
 			SKCanvas canvas = surface.Canvas;
+			SKColor sKColor = backgroundColor?.ToSKColor() ?? SKColors.White;
 
-			canvas.Clear(SKColors.Red);
-
-			// Analizar el bitmap original y dibujar módulos redondeados
-			int moduleSize = size / originalBitmap.Width;
-			float cornerRadius = moduleSize * 0.3f;
+			canvas.Clear(sKColor);
 
 			using SKPaint paint = new()
 			{
-				Color = SKColors.Black,
-				IsAntialias = true
+				Color = foregroundColor?.ToSKColor() ?? SKColors.Black,
+				IsAntialias = true,
+				StrokeWidth = 4
 			};
 
-			for (int x = 0; x < originalBitmap.Width; x++)
+			for (int row = 0; row < modules; row++)
 			{
-				for (int y = 0; y < originalBitmap.Height; y++)
+				for (int col = 0; col < modules; col++)
 				{
-					SKColor pixel = originalBitmap.GetPixel(x, y);
-					
-					if (pixel.Red < 128) // Es negro (módulo activo)
+					if (moduleMatrix[row][col])
 					{
 						SKRect rect = new(
-							x * moduleSize,
-							y * moduleSize,
-							(x + 1) * moduleSize,
-							(y + 1) * moduleSize
+							col * moduleSize,
+							row * moduleSize,
+							(col + 1) * moduleSize,
+							(row + 1) * moduleSize
 						);
-						
+
 						canvas.DrawRoundRect(
 							rect, cornerRadius, cornerRadius, paint
 						);
@@ -107,8 +102,52 @@ namespace MauiTestApp.Services.App
 			using SKData data = image.Encode(
 				SKEncodedImageFormat.Png, 100
 			);
-			
+
 			return data.ToArray();
 		}
+
+		private static Task<byte[]> ResizeIfNeeded(
+			byte[] originalBytes, int targetSize
+		)
+		{
+			return Task.Run(
+				() =>
+				{
+					using SKBitmap originalBitmap = SKBitmap.Decode(
+						originalBytes
+					);
+
+					if (originalBitmap.Width == targetSize &&
+						originalBitmap.Height == targetSize
+					) return originalBytes;
+
+					SKImageInfo info = new(targetSize, targetSize);
+					using SKSurface surface = SKSurface.Create(info);
+					SKCanvas canvas = surface.Canvas;
+
+					SKRect destRect = new(0, 0, targetSize, targetSize);
+
+					canvas.DrawBitmap(originalBitmap, destRect);
+
+					using SKImage image = surface.Snapshot();
+					using SKData data = image.Encode(
+						SKEncodedImageFormat.Png, 100
+					);
+
+					return data.ToArray();
+				}
+			);
+		}
+
+		private static ECCLevel GetECCLevel(
+			CorrectionLevelType correctionLevel
+		) => correctionLevel switch
+		{
+			CorrectionLevelType.Low => ECCLevel.L,
+			CorrectionLevelType.Medium => ECCLevel.M,
+			CorrectionLevelType.Quartile => ECCLevel.Q,
+			CorrectionLevelType.High => ECCLevel.H,
+			_ => ECCLevel.L
+		};
 	}
 }

@@ -10,7 +10,7 @@ namespace TemplateServices.Core.ViewModels
 	) : ObservableObject
 	{
 		[ObservableProperty]
-		private string text = string.Empty;
+		private string text = "This is an example of text to show in your codes";
 
 		[ObservableProperty]
 		private byte[] barcode = [];
@@ -32,14 +32,9 @@ namespace TemplateServices.Core.ViewModels
 		[RelayCommand]
 		private async Task GenerateQRCodeAsync()
 		{
-			if (Rounded)
-			{
-				QrCode = await qRCodeService.GenerateRoundedAsync(Text, 200);
-			}
-			else
-			{
-				QrCode = await qRCodeService.GenerateAsync(Text);
-			}
+			QrCode = await qRCodeService.GenerateAsync(
+				Text, 200, rounded: Rounded
+			);
 		}
 	}
 }

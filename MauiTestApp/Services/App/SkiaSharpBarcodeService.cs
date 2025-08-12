@@ -1,25 +1,31 @@
-﻿using SkiaSharp;
+﻿using MauiTestApp.Extensions;
+using SkiaSharp;
 using TemplateServices.Core.Services.App;
+using Color = System.Drawing.Color;
 
 namespace MauiTestApp.Services.App
 {
 	public class SkiaSharpBarcodeService : IBarcodeService
 	{
 		public Task<byte[]> GenerateAsync(
-			string value, int width, int height, int quality = 100
+			string value,
+			int width,
+			int height,
+			Color? backgroundColor = null,
+			Color? foregroundColor = null
 		)
 		{
 			SKImageInfo info = new(width, height);
 			using SKSurface surface = SKSurface.Create(info);
 			SKCanvas canvas = surface.Canvas;
 
-			canvas.Clear(SKColors.Transparent);
+			canvas.Clear(foregroundColor?.ToSKColor() ?? SKColors.White);
 
-			// Dibujar código de barras simple (Code 39 básico)
+			// Drawing simple barcode (Code 39)
 			DrawSimpleBarcode(canvas, value, width, height);
 
 			using SKImage image = surface.Snapshot();
-			using SKData data = image.Encode(SKEncodedImageFormat.Png, quality);
+			using SKData data = image.Encode(SKEncodedImageFormat.Png, 100);
 
 			return Task.FromResult(data.ToArray());
 		}
@@ -27,23 +33,26 @@ namespace MauiTestApp.Services.App
 		/**/
 
 		private static void DrawSimpleBarcode(
-			SKCanvas canvas, string value, int width, int height
+			SKCanvas canvas,
+			string value,
+			int width,
+			int height,
+			Color? foregroundColor = null
 		)
 		{
-			// Implementación básica de código de barras
 			SKPaint paint = new()
 			{
-				Color = SKColors.Black,
+				Color = foregroundColor?.ToSKColor() ?? SKColors.Black,
 				StrokeWidth = 4
 			};
 
-			// Dibujar barras verticales basadas en el valor
+			// Drawing vertical bars based in the value
 			float barWidth = width / (float)(value.Length * 8);
 			float x = 0;
 
 			foreach (char c in value)
 			{
-				int pattern = c % 8; // Patrón simple basado en el carácter
+				int pattern = c % 8; // Simple pattern based in the character
 
 				for (int i = 0; i < 8; i++)
 				{
