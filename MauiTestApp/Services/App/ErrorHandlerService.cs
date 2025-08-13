@@ -1,6 +1,7 @@
 ﻿using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
 using MauiTestApp.Handlers.Error;
+using MauiTestApp.Handlers.Error.Exceptions;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using TemplateServices.Core.Services.App;
@@ -24,6 +25,13 @@ namespace MauiTestApp.Services.App
 			string userMessage = GetUserFriendlyMessage(exception);
 
 			return Response.Fail(userMessage);
+		}
+
+		public ResultHelper<T> HandleError<T>(Exception exception)
+		{
+			string userMessage = GetUserFriendlyMessage(exception);
+
+			return ResultHelper<T>.Fail(userMessage);
 		}
 
 		public async Task<Response> ShowErrorAsync(Exception exception)
@@ -93,6 +101,7 @@ namespace MauiTestApp.Services.App
 				FileNotFoundException => _localizationService.GetLocalizedString("file_not_found_error"),
 				HttpRequestException => _localizationService.GetLocalizedString("network_connection_error"),
 				InvalidOperationException => _localizationService.GetLocalizedString("invalid_operation_error"),
+				NoRecordWereAffectedException => _localizationService.GetLocalizedString("no_records_were_affected_error"),
 				_ => _localizationService.GetLocalizedString("unknown_error")
 			};
 		}
