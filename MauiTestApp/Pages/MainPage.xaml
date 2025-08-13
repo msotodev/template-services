@@ -5,7 +5,8 @@
 			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
 			   x:DataType="viewmodels:MainPageViewModel"
 			   x:TypeArguments="viewmodels:MainPageViewModel"
-			   x:Class="MauiTestApp.Pages.MainPage">
+			   x:Class="MauiTestApp.Pages.MainPage"
+			   Title="Main">
 
 	<Grid Style="{StaticResource grid-content}">
 		<VerticalStackLayout Spacing="10">
@@ -25,6 +26,9 @@
 
 			<Button Text="Permission"
 					Command="{Binding PermissionCommand}" />
+
+			<Button Text="Preference"
+					Command="{Binding PreferenceCommand}" />
 		</VerticalStackLayout>
 	</Grid>
 

@@ -18,6 +18,7 @@ namespace MauiTestApp
 			Routing.RegisterRoute(RoutesConstant.CODE, typeof(CodePage));
 			Routing.RegisterRoute(RoutesConstant.DIALOG, typeof(DialogPage));
 			Routing.RegisterRoute(RoutesConstant.PERMISSION, typeof(PermissionPage));
+			Routing.RegisterRoute(RoutesConstant.PREFERENCE, typeof(PreferencePage));
 		}
 	}
 }

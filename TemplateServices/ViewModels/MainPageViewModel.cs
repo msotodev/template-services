@@ -28,5 +28,10 @@ namespace TemplateServices.Core.ViewModels
 		private Task PermissionAsync() => navigationService.NavigateToAsync(
 			RoutesConstant.PERMISSION
 		);
+
+		[RelayCommand]
+		private Task PreferenceAsync() => navigationService.NavigateToAsync(
+			RoutesConstant.PREFERENCE
+		);
 	}
 }

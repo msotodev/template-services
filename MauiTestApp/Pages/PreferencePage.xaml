@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   xmlns:model="clr-namespace:TemplateServices.Core.Models;assembly=TemplateServices.Core"
+			   xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+			   x:DataType="viewmodels:PreferencePageViewModel"
+			   x:TypeArguments="viewmodels:PreferencePageViewModel"
+               x:Class="MauiTestApp.Pages.PreferencePage"
+               Title="PreferencePage"
+			   x:Name="preferencePage">
+
+	<ContentPage.Behaviors>
+		<toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+	</ContentPage.Behaviors>
+
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="10" Margin="0, 0, 0, 70">
+			<VerticalStackLayout>
+				<Entry Text="{Binding Text}" />
+
+				<CollectionView ItemsSource="{Binding Preferences}"
+								ItemSizingStrategy="MeasureAllItems">
+					<CollectionView.ItemTemplate>
+						<DataTemplate x:DataType="model:PreferenceModel">
+							<Grid Margin="0, 5, 0, 0">
+								<Border Grid.Row="0" Style="{StaticResource border-rounded}">
+									<Grid ColumnDefinitions="*, 75">
+										<VerticalStackLayout Grid.Column="0"
+															 Spacing="0"
+															 VerticalOptions="Center">
+											<Label Text="{Binding Key}" />
+											<Label Text="{Binding Value}"
+												   FontSize="Micro" />
+										</VerticalStackLayout>
+										<Button Grid.Column="1"
+												FontSize="Micro"
+												Text="Remove"
+												VerticalOptions="Center"
+												IsEnabled="{Binding Source={x:Reference preferencePage}, Path=BindingContext.IsEnabledDeleteButton}"
+												Command="{Binding Source={x:Reference preferencePage}, Path=BindingContext.RemoveCommand}"
+												CommandParameter="{Binding .}" />
+									</Grid>
+								</Border>
+							</Grid>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+			</VerticalStackLayout>
+		</VerticalStackLayout>
+		<VerticalStackLayout Spacing="5" VerticalOptions="End">
+			<Button Text="Add"
+					Command="{Binding AddCommand}" />
+
+			<Button Text="Clear"
+					Command="{Binding ClearCommand}" />
+		</VerticalStackLayout>
+	</Grid>
+	
+</page:BasePage>

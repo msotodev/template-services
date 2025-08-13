@@ -11,5 +11,7 @@
 		public const string MAIN = "main-page";
 
 		public const string PERMISSION = "permission-page";
+
+		public const string PREFERENCE = "preference-page";
 	}
 }

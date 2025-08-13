@@ -2,12 +2,12 @@
 {
 	public interface IPreferencesService
 	{
-		string Get(string key);
+		void Clear();
+
+		T Get<T>(string key);
 
 		void Remove(string key);
 
-		void Set(string key, string value);
-
-		void Set(string key, bool value);
+		void Set<T>(string key, T value);
 	}
 }

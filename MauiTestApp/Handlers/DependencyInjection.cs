@@ -30,6 +30,7 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<DialogPageViewModel>();
 			services.AddTransient<MainPageViewModel>();
 			services.AddTransient<PermissionPageViewModel>();
+			services.AddTransient<PreferencePageViewModel>();
 		}
 
 		public static void RegisterPages(IServiceCollection services)
@@ -39,6 +40,7 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<DialogPage>();
 			services.AddTransient<MainPage>();
 			services.AddTransient<PermissionPage>();
+			services.AddTransient<PreferencePage>();
 		}
 	}
 }
