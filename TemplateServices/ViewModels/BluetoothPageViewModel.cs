@@ -30,6 +30,8 @@ namespace TemplateServices.Core.ViewModels
 			bluetoothService.DeviceDiscovered -= OnDeviceDiscovered;
 			bluetoothService.DeviceDiscovered += OnDeviceDiscovered;
 
+			Refresh();
+
 			bluetoothService.ScanAsync();
 		}
 

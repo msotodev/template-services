@@ -3,7 +3,7 @@
 			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			   xmlns:page="clr-namespace:MauiTestApp.Pages"
 			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
-			   xmlns:models="clr-namespace:TemplateServices.Core.Models;assembly=TemplateServices.Core"
+			   xmlns:model="clr-namespace:TemplateServices.Core.Models;assembly=TemplateServices.Core"
 			   xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
 			   x:DataType="viewmodels:BluetoothPageViewModel"
 			   x:TypeArguments="viewmodels:BluetoothPageViewModel"
@@ -22,7 +22,7 @@
 			<CollectionView ItemsSource="{Binding Devices}"
 							ItemSizingStrategy="MeasureAllItems">
 				<CollectionView.ItemTemplate>
-					<DataTemplate x:DataType="models:DeviceModel">
+					<DataTemplate x:DataType="model:DeviceModel">
 						<Grid Margin="0, 5">
 							<Border Grid.Row="0" Style="{StaticResource border-rounded}">
 								<Grid ColumnDefinitions="*, 75" ColumnSpacing="10">

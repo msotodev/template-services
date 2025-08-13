@@ -1,11 +1,12 @@
 using TemplateServices.Core.ViewModels;
 
-namespace MauiTestApp.Pages;
-
-public partial class BluetoothPage : BasePage<BluetoothPageViewModel>
+namespace MauiTestApp.Pages
 {
-	public BluetoothPage(BluetoothPageViewModel viewModel) : base(viewModel)
+	public partial class BluetoothPage : BasePage<BluetoothPageViewModel>
 	{
-		InitializeComponent();
+		public BluetoothPage(BluetoothPageViewModel viewModel) : base(viewModel)
+		{
+			InitializeComponent();
+		}
 	}
 }
