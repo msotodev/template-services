@@ -18,7 +18,8 @@
 				   Aspect="AspectFit" />
 
 			<Button Text="Generate Barcode"
-					Command="{Binding GenerateBarcodeCommand}" />
+					Command="{Binding GenerateBarcodeCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<FlexLayout JustifyContent="SpaceBetween">
 				<Label Text="QR code" />
@@ -33,7 +34,8 @@
 				   Aspect="AspectFit" />
 
 			<Button Text="Generate QR"
-					Command="{Binding GenerateQRCodeCommand}" />
+					Command="{Binding GenerateQRCodeCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 	

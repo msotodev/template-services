@@ -16,22 +16,28 @@
 				   SemanticProperties.Description="dot net bot in a race car number eight" />
 
 			<Button Text="Bluetooth"
-					Command="{Binding BluetoothCommand}" />
+					Command="{Binding BluetoothCommand}"
+					Style="{StaticResource btn-primary}" />
 			
 			<Button Text="Code"
-					Command="{Binding CodeCommand}" />
+					Command="{Binding CodeCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<Button Text="Dialog"
-					Command="{Binding DialogCommand}" />
+					Command="{Binding DialogCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<Button Text="Permission"
-					Command="{Binding PermissionCommand}" />
+					Command="{Binding PermissionCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<Button Text="Preference"
-					Command="{Binding PreferenceCommand}" />
+					Command="{Binding PreferenceCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<Button Text="Todo List"
-					Command="{Binding TodoItemCommand}" />
+					Command="{Binding TodoItemCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 

@@ -6,6 +6,8 @@
 
 	<!-- Variables -->
 	<x:String x:Key="material-icons-font">MaterialIconsRegular</x:String>
+	<x:String x:Key="font-family">OpenSansRegular</x:String>
+	<x:Int x:Key="font-size">12</x:Int>
 
 	<!-- Grid Styles -->
 
@@ -44,6 +46,39 @@
 		<Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1" />
 		<Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
 	</Style>
+	
+	<!-- Label Styles -->
 
+	<Style x:Key="badge-primary-sm" TargetType="Label">
+		<Setter Property="HorizontalTextAlignment" Value="Center" />
+		<Setter Property="VerticalTextAlignment" Value="Center" />
+		<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+		<Setter Property="TextColor" Value="White" />
+		<Setter Property="FontSize" Value="Micro" />
+		<Setter Property="Padding" Value="5" />
+	</Style>
+
+	<!-- Button Styles -->
+
+	<Style x:Key="btn-base" TargetType="Button">
+		<Setter Property="FontSize" Value="{StaticResource font-size}" />
+		<Setter Property="CornerRadius" Value="4" />
+		<Setter Property="FontFamily" Value="{StaticResource font-family}" />
+		<Setter Property="Padding" Value="2" />
+	</Style>
+
+	<Style x:Key="btn-primary" TargetType="Button" BasedOn="{StaticResource btn-base}">
+		<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+		<Setter Property="TextColor" Value="White" />
+	</Style>
+
+	<Style x:Key="btn-primary-sm" TargetType="Button" BasedOn="{StaticResource btn-base}">
+		<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+		<Setter Property="TextColor" Value="White" />
+		<Setter Property="FontSize" Value="Micro" />
+	</Style>
+
+	<!-- Converters -->
+	
 	<converter:BytesConverter x:Key="bytesConverter" />
 </ResourceDictionary>

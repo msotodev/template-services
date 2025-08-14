@@ -29,16 +29,16 @@
 									<Border Grid.Row="0" Style="{StaticResource border-rounded}">
 										<Grid ColumnDefinitions="*, 75" ColumnSpacing="10">
 											<VerticalStackLayout Grid.Column="0"
-															 Spacing="0"
-															 VerticalOptions="Center">
+																 Spacing="0"
+																 VerticalOptions="Center">
 												<Label Text="{Binding Title}" />
 												<Label Text="{Binding Description}"
 												   FontSize="Micro" />
 											</VerticalStackLayout>
-											<VerticalStackLayout Grid.Column="1">
+											<VerticalStackLayout Grid.Column="1"
+																 VerticalOptions="Center">
 												<Label Text="{Binding CategoryName}"
-													   VerticalOptions="Center"
-													   VerticalTextAlignment="Center" />
+													   Style="{StaticResource badge-primary-sm}" />
 											</VerticalStackLayout>
 										</Grid>
 									</Border>
@@ -53,12 +53,14 @@
 											<Button Grid.Column="0"
 													Text="Edit"
 													Command="{Binding Source={x:Reference todoItem}, Path=BindingContext.EditCommand}"
-													CommandParameter="{Binding .}" />
+													CommandParameter="{Binding .}"
+													Style="{StaticResource btn-primary}" />
 
 											<Button Grid.Column="1"
 													Text="Delete"
 													Command="{Binding Source={x:Reference todoItem}, Path=BindingContext.RemoveCommand}"
-													CommandParameter="{Binding .}" />
+													CommandParameter="{Binding .}"
+													Style="{StaticResource btn-primary}" />
 										</Grid>
 									</SwipeItemView>
 								</SwipeItems>
@@ -71,11 +73,11 @@
 
 		<VerticalStackLayout VerticalOptions="End" Spacing="5">
 			<Button Text="Add"
-					Command="{Binding AddCommand}" />
+					Command="{Binding AddCommand}"
+					Style="{StaticResource btn-primary}" />
 			
 			<Label Text="{Binding TodoItems.Count}"
-				   HorizontalTextAlignment="Center"
-				   VerticalTextAlignment="Center">
+				   Style="{StaticResource badge-primary-sm}">
 				<Label.FormattedText>
 					<FormattedString>
 						<Span Text="Founded Devices: " />

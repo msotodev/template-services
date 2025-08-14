@@ -10,11 +10,25 @@
 	
 	<Grid Style="{StaticResource grid-content}">
 		<VerticalStackLayout Spacing="10">
-			<Button Text="Bluetooth" Command="{Binding BlutoothCommand}" />
-			<Button Text="Camera" Command="{Binding CameraCommand}" />
-			<Button Text="LocationAlways" Command="{Binding LocationAlwaysCommand}" />
-			<Button Text="LocationWhenInUse" Command="{Binding LocationWhenInUseCommand}" />
-			<Button Text="StorageReadWrite" Command="{Binding StorageReadWriteCommand}" />
+			<Button Text="Bluetooth"
+					Command="{Binding BlutoothCommand}"
+					Style="{StaticResource btn-primary}" />
+			
+			<Button Text="Camera"
+					Command="{Binding CameraCommand}"
+					Style="{StaticResource btn-primary}"/>
+			
+			<Button Text="LocationAlways"
+					Command="{Binding LocationAlwaysCommand}"
+					Style="{StaticResource btn-primary}" />
+			
+			<Button Text="LocationWhenInUse"
+					Command="{Binding LocationWhenInUseCommand}"
+					Style="{StaticResource btn-primary}" />
+			
+			<Button Text="StorageReadWrite"
+					Command="{Binding StorageReadWriteCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 	

@@ -16,7 +16,8 @@
 				   Placeholder="Type a title" />
 
 			<Button Text="Save"
-					Command="{Binding SaveCommand}" />
+					Command="{Binding SaveCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 

@@ -35,7 +35,7 @@
 												   FontSize="Micro" />
 										</VerticalStackLayout>
 										<Button Grid.Column="1"
-												FontSize="Micro"
+												Style="{StaticResource btn-primary-sm}"
 												Text="Remove"
 												VerticalOptions="Center"
 												IsEnabled="{Binding Source={x:Reference preferencePage}, Path=BindingContext.IsEnabledDeleteButton}"
@@ -51,10 +51,12 @@
 		</VerticalStackLayout>
 		<VerticalStackLayout Spacing="5" VerticalOptions="End">
 			<Button Text="Add"
-					Command="{Binding AddCommand}" />
+					Command="{Binding AddCommand}"
+					Style="{StaticResource btn-primary}" />
 
 			<Button Text="Clear"
-					Command="{Binding ClearCommand}" />
+					Command="{Binding ClearCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 	

@@ -14,32 +14,40 @@
 
 			<VerticalStackLayout Spacing="5">
 				<Button Text="Information"
-						Command="{Binding FixedInfoCommand}" />
+						Command="{Binding FixedInfoCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Error"
-						Command="{Binding FixedErrorCommand}" />
+						Command="{Binding FixedErrorCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Warning"
-						Command="{Binding FixedWarningCommand}" />
+						Command="{Binding FixedWarningCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Confirmation"
-						Command="{Binding FixedConfirmCommand}" />
+						Command="{Binding FixedConfirmCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Prompt"
-						Command="{Binding FixedPromptCommand}" />
+						Command="{Binding FixedPromptCommand}"
+						Style="{StaticResource btn-primary}" />
 			</VerticalStackLayout>
 
 			<Label Text="Transitive" />
 
 			<VerticalStackLayout Spacing="5">
 				<Button Text="Information"
-						Command="{Binding TransitiveInfoCommand}" />
+						Command="{Binding TransitiveInfoCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Error"
-						Command="{Binding TransitiveErrorCommand}" />
+						Command="{Binding TransitiveErrorCommand}"
+						Style="{StaticResource btn-primary}" />
 
 				<Button Text="Warning"
-						Command="{Binding TransitiveWarningCommand}" />
+						Command="{Binding TransitiveWarningCommand}"
+						Style="{StaticResource btn-primary}" />
 			</VerticalStackLayout>
 		</VerticalStackLayout>
 	</Grid>

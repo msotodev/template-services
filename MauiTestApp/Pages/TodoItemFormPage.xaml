@@ -30,10 +30,10 @@
 							SelectedItem="{Binding SelectedCategory}" />
 
 					<Button Grid.Column="1"
-							FontSize="Micro"
 							Text="Add"
 							Margin="5"
-							Command="{Binding AddCatalogCommand}" />
+							Command="{Binding AddCatalogCommand}"
+							Style="{StaticResource btn-primary}" />
 				</Grid>
 			</VerticalStackLayout>
 

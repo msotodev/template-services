@@ -36,7 +36,7 @@
 									<Button Grid.Column="1"
 											VerticalOptions="Center"
 											Text="Connect"
-											FontSize="Micro"
+											Style="{StaticResource btn-primary}"
 											Command="{Binding Source={x:Reference bluetoothPage}, Path=BindingContext.ConnectCommand}"
 											CommandParameter="{Binding .}" />
 								</Grid>
@@ -49,8 +49,7 @@
 		
 		<VerticalStackLayout VerticalOptions="End">
 			<Label Text="{Binding Devices.Count}"
-				   HorizontalTextAlignment="Center"
-				   VerticalTextAlignment="Center">
+				   Style="{StaticResource badge-primary-sm}">
 				<Label.FormattedText>
 					<FormattedString>
 						<Span Text="Founded Devices: " />
