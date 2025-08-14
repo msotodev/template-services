@@ -7,7 +7,7 @@
 	<!-- Variables -->
 	<x:String x:Key="material-icons-font">MaterialIconsRegular</x:String>
 	<x:String x:Key="font-family">OpenSansRegular</x:String>
-	<x:Int x:Key="font-size">12</x:Int>
+	<x:Int16 x:Key="font-size">12</x:Int16>
 
 	<!-- Grid Styles -->
 
