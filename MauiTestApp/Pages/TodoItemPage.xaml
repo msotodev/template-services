@@ -77,10 +77,11 @@
 					Style="{StaticResource btn-primary}" />
 			
 			<Label Text="{Binding TodoItems.Count}"
-				   Style="{StaticResource badge-primary-sm}">
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="Center">
 				<Label.FormattedText>
 					<FormattedString>
-						<Span Text="Founded Devices: " />
+						<Span Text="Founded Items: " />
 						<Span Text="{Binding TodoItems.Count}" />
 					</FormattedString>
 				</Label.FormattedText>

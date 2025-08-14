@@ -57,6 +57,17 @@
 			<Button Text="Clear"
 					Command="{Binding ClearCommand}"
 					Style="{StaticResource btn-primary}" />
+
+			<Label Text="{Binding Preferences.Count}"
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="Center">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Founded Preferences: " />
+						<Span Text="{Binding Preferences.Count}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
 		</VerticalStackLayout>
 	</Grid>
 	
