@@ -2,7 +2,9 @@
 {
 	public interface ILocalizationService
 	{
-		string GetLocalizedString(string key);
+		string GetString(string key);
+
+		string GetString(string key, string dynamicParameterKe);
 
 		void SetCulture(string cultureCode);
 

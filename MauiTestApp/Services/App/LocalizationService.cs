@@ -1,4 +1,5 @@
 ﻿using TemplateServices.Core.Services.App;
+using static TemplateServices.Core.Helpers.Constants.LocalizationConstant;
 
 namespace MauiTestApp.Services.App
 {
@@ -27,7 +28,11 @@ namespace MauiTestApp.Services.App
 					["error_title"] = "Error",
 					["ok_button"] = "OK",
 					["retry_button"] = "Retry",
-					["cancel_button"] = "Cancel"
+					["cancel_button"] = "Cancel",
+					[NO_RECORDS_WERE_AFFECTED_ERROR] = "no se afectó ningún registro.",
+					[DELETE_QUESTION_CONFIRMATION] = "¿Esta seguro de eliminar?",
+					[REQUIRED_DYNAMIC_MESSAGE] = "El campo \"dynamicParameterKey\" es requerido.",
+					[CATEGORY] = "Categoría"
 				},
 				["es"] = new Dictionary<string, string>
 				{
@@ -40,12 +45,16 @@ namespace MauiTestApp.Services.App
 					["error_title"] = "Error",
 					["ok_button"] = "Aceptar",
 					["retry_button"] = "Reintentar",
-					["cancel_button"] = "Cancelar"
+					["cancel_button"] = "Cancelar",
+					[NO_RECORDS_WERE_AFFECTED_ERROR] = "no records were affected.",
+					[DELETE_QUESTION_CONFIRMATION] = "¿Are you sure delete?",
+					[REQUIRED_DYNAMIC_MESSAGE] = "The field \"dynamicParameterKey\" is required.",
+					[CATEGORY] = "Category"
 				}
 			};
 		}
 
-		public string GetLocalizedString(string key)
+		public string GetString(string key)
 		{
 			if (_localizedStrings.TryGetValue(
 				_currentCulture, out Dictionary<string, string>? cultureStrings) &&
@@ -65,6 +74,13 @@ namespace MauiTestApp.Services.App
 			}
 
 			return key; // Return key as fallback
+		}
+
+		public string GetString(string key, string dynamicParameterKey)
+		{
+			string dynamicString = GetString(dynamicParameterKey);
+
+			return GetString(key).Replace("dynamicParameterKey", dynamicString);
 		}
 
 		public void SetCulture(string cultureCode)

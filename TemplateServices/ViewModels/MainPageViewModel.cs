@@ -33,5 +33,10 @@ namespace TemplateServices.Core.ViewModels
 		private Task PreferenceAsync() => navigationService.NavigateToAsync(
 			RoutesConstant.PREFERENCE
 		);
+
+		[RelayCommand]
+		private Task TodoItemAsync() => navigationService.NavigateToAsync(
+			RoutesConstant.TODO_ITEM
+		);
 	}
 }

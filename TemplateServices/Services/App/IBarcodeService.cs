@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace TemplateServices.Core.Services.App
+﻿namespace TemplateServices.Core.Services.App
 {
 	public interface IBarcodeService
 	{
@@ -8,8 +6,8 @@ namespace TemplateServices.Core.Services.App
 			string value,
 			int width,
 			int height,
-			Color? backgroundColor = null,
-			Color? foregroundColor = null
+			System.Drawing.Color? backgroundColor = null,
+			System.Drawing.Color? foregroundColor = null
 		);
 	}
 }

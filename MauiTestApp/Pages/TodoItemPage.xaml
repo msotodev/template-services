@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   xmlns:dto="clr-namespace:TemplateServices.Core.Models.Dtos;assembly=TemplateServices.Core"
+			   xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+			   x:DataType="viewmodels:TodoItemPageViewModel"
+			   x:TypeArguments="viewmodels:TodoItemPageViewModel"
+			   x:Class="MauiTestApp.Pages.TodoItemPage"
+			   Title="Todo List"
+			   x:Name="todoItem">
+
+	<ContentPage.Behaviors>
+		<toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing" />
+	</ContentPage.Behaviors>
+
+	<Grid Style="{StaticResource grid-content}">
+		<RefreshView IsRefreshing="{Binding IsRefreshing}"
+				 Command="{Binding RefreshCommand}"
+				 Margin="0, 0, 0, 35">
+			<CollectionView ItemsSource="{Binding TodoItems}"
+						ItemSizingStrategy="MeasureAllItems">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="dto:TodoItemResultDto">
+						<SwipeView>
+							<SwipeView.Content>
+								<Grid Margin="0, 5">
+									<Border Grid.Row="0" Style="{StaticResource border-rounded}">
+										<Grid ColumnDefinitions="*, 75" ColumnSpacing="10">
+											<VerticalStackLayout Grid.Column="0"
+															 Spacing="0"
+															 VerticalOptions="Center">
+												<Label Text="{Binding Title}" />
+												<Label Text="{Binding Description}"
+												   FontSize="Micro" />
+											</VerticalStackLayout>
+											<VerticalStackLayout Grid.Column="1">
+												<Label Text="{Binding CategoryName}"
+													   VerticalOptions="Center"
+													   VerticalTextAlignment="Center" />
+											</VerticalStackLayout>
+										</Grid>
+									</Border>
+								</Grid>
+							</SwipeView.Content>
+							<SwipeView.RightItems>
+								<SwipeItems Mode="Reveal">
+									<SwipeItemView>
+										<Grid ColumnDefinitions="*, *"
+											  ColumnSpacing="5"
+											  VerticalOptions="Center">
+											<Button Grid.Column="0"
+													Text="Edit"
+													Command="{Binding Source={x:Reference todoItem}, Path=BindingContext.EditCommand}"
+													CommandParameter="{Binding .}" />
+
+											<Button Grid.Column="1"
+													Text="Delete"
+													Command="{Binding Source={x:Reference todoItem}, Path=BindingContext.RemoveCommand}"
+													CommandParameter="{Binding .}" />
+										</Grid>
+									</SwipeItemView>
+								</SwipeItems>
+							</SwipeView.RightItems>
+						</SwipeView>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</RefreshView>
+
+		<VerticalStackLayout VerticalOptions="End" Spacing="5">
+			<Button Text="Add"
+					Command="{Binding AddCommand}" />
+			
+			<Label Text="{Binding TodoItems.Count}"
+				   HorizontalTextAlignment="Center"
+				   VerticalTextAlignment="Center">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Founded Devices: " />
+						<Span Text="{Binding TodoItems.Count}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+		</VerticalStackLayout>
+	</Grid>
+</page:BasePage>

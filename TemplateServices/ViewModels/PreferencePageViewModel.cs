@@ -1,12 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using TemplateServices.Core.Helpers.Constants;
 using TemplateServices.Core.Models;
 using TemplateServices.Core.Services.App;
 
 namespace TemplateServices.Core.ViewModels
 {
 	public partial class PreferencePageViewModel(
+		IFixedDialogService fixedDialogService,
+		ILocalizationService localizationService,
 		IPreferencesService preferencesService
 	) : ObservableObject
 	{
@@ -57,13 +60,21 @@ namespace TemplateServices.Core.ViewModels
 		}
 
 		[RelayCommand]
-		private void Remove(PreferenceModel model)
+		private async Task RemoveAsync(PreferenceModel model)
 		{
 			if (model == null) return;
 
-			Preferences.Remove(model);
-			
-			preferencesService.Remove(model.Key);
+			string message = localizationService.GetString(
+				LocalizationConstant.DELETE_QUESTION_CONFIRMATION
+			);
+			bool confirmed = await fixedDialogService.ConfirmAsync(message);
+
+			if (confirmed)
+			{
+				Preferences.Remove(model);
+
+				preferencesService.Remove(model.Key);
+			}
 		}
 	}
 }

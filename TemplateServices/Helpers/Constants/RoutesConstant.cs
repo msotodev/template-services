@@ -10,6 +10,12 @@
 		
 		public const string MAIN = "main-page";
 
+		public const string TODO_ITEM = "todo-item-page";
+
+		public const string TODO_ITEM_FORM = "todo-item-form-page";
+
+		public const string TODO_ITEM_CATEGORY_FORM = "todo-item-category-form-page";
+
 		public const string PERMISSION = "permission-page";
 
 		public const string PREFERENCE = "preference-page";

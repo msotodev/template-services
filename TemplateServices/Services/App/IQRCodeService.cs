@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using static TemplateServices.Core.Models.Types.QRCodeTypes;
+﻿using static TemplateServices.Core.Models.Types.QRCodeTypes;
 
 namespace TemplateServices.Core.Services.App
 {
@@ -8,8 +7,8 @@ namespace TemplateServices.Core.Services.App
 		Task<byte[]> GenerateAsync(
 			string text,
 			int size,
-			Color? backgroundColor = null,
-			Color? foregroundColor = null,
+			System.Drawing.Color? backgroundColor = null,
+			System.Drawing.Color? foregroundColor = null,
 			bool rounded = false,
 			CorrectionLevelType correctionLevel = CorrectionLevelType.Low
 		);

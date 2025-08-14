@@ -4,6 +4,7 @@ using MauiTestApp.Handlers.Error;
 using MauiTestApp.Handlers.Error.Exceptions;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using TemplateServices.Core.Helpers.Constants;
 using TemplateServices.Core.Services.App;
 
 namespace MauiTestApp.Services.App
@@ -39,8 +40,8 @@ namespace MauiTestApp.Services.App
 			LogError(exception);
 
 			string userMessage = GetUserFriendlyMessage(exception);
-			string title = _localizationService.GetLocalizedString("error_title");
-			string okButton = _localizationService.GetLocalizedString("ok_button");
+			string title = _localizationService.GetString("error_title");
+			string okButton = _localizationService.GetString("ok_button");
 
 			await fixedDialogService.ErrorAsync(title, userMessage, okButton);
 
@@ -54,9 +55,9 @@ namespace MauiTestApp.Services.App
 			LogError(exception);
 
 			string userMessage = GetUserFriendlyMessage(exception);
-			string title = _localizationService.GetLocalizedString("error_title");
-			string retryButton = _localizationService.GetLocalizedString("retry_button");
-			string cancelButton = _localizationService.GetLocalizedString("cancel_button");
+			string title = _localizationService.GetString("error_title");
+			string retryButton = _localizationService.GetString("retry_button");
+			string cancelButton = _localizationService.GetString("cancel_button");
 
 			string result = await fixedDialogService.PromptAsync(
 				title, userMessage, retryButton, cancelButton
@@ -96,13 +97,15 @@ namespace MauiTestApp.Services.App
 		{
 			return exception switch
 			{
-				AppException appEx => _localizationService.GetLocalizedString(appEx.UserFriendlyKey),
-				UnauthorizedAccessException => _localizationService.GetLocalizedString("permission_denied_error"),
-				FileNotFoundException => _localizationService.GetLocalizedString("file_not_found_error"),
-				HttpRequestException => _localizationService.GetLocalizedString("network_connection_error"),
-				InvalidOperationException => _localizationService.GetLocalizedString("invalid_operation_error"),
-				NoRecordWereAffectedException => _localizationService.GetLocalizedString("no_records_were_affected_error"),
-				_ => _localizationService.GetLocalizedString("unknown_error")
+				AppException appEx => _localizationService.GetString(appEx.UserFriendlyKey),
+				UnauthorizedAccessException => _localizationService.GetString("permission_denied_error"),
+				FileNotFoundException => _localizationService.GetString("file_not_found_error"),
+				HttpRequestException => _localizationService.GetString("network_connection_error"),
+				InvalidOperationException => _localizationService.GetString("invalid_operation_error"),
+				NoRecordWereAffectedException => _localizationService.GetString(
+					LocalizationConstant.NO_RECORDS_WERE_AFFECTED_ERROR
+				),
+				_ => _localizationService.GetString("unknown_error")
 			};
 		}
 	}

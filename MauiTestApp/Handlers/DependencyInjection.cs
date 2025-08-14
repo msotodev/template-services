@@ -1,5 +1,7 @@
 ﻿using MauiTestApp.Pages;
+using MauiTestApp.Services.Api.Local;
 using MauiTestApp.Services.App;
+using TemplateServices.Core.Services.Api.Local;
 using TemplateServices.Core.Services.App;
 using TemplateServices.Core.ViewModels;
 
@@ -21,6 +23,10 @@ namespace MauiTestApp.Handlers
 			services.AddSingleton<INavigationService, NavigationService>();
 			services.AddSingleton<IBarcodeService, SkiaSharpBarcodeService>();
 			services.AddSingleton<IQRCodeService, QRCoderService>();
+			services.AddSingleton<IOfflineDatabaseService, SQLitePlcDatabaseService>();
+
+			services.AddSingleton<ITodoItemService, TodoItemService>();
+			services.AddSingleton<ITodoItemCategoryService, TodoItemCategoryService>();
 		}
 
 		public static void RegisterViewModels(IServiceCollection services)
@@ -31,6 +37,9 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<MainPageViewModel>();
 			services.AddTransient<PermissionPageViewModel>();
 			services.AddTransient<PreferencePageViewModel>();
+			services.AddTransient<TodoItemPageViewModel>();
+			services.AddTransient<TodoItemFormPageViewModel>();
+			services.AddTransient<TodoItemCategoryFormPageViewModel>();
 		}
 
 		public static void RegisterPages(IServiceCollection services)
@@ -41,6 +50,9 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<MainPage>();
 			services.AddTransient<PermissionPage>();
 			services.AddTransient<PreferencePage>();
+			services.AddTransient<TodoItemPage>();
+			services.AddTransient<TodoItemFormPage>();
+			services.AddTransient<TodoItemCategoryFormPage>();
 		}
 	}
 }
