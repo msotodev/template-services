@@ -100,6 +100,7 @@ namespace MauiTestApp.Services.App
 				AppException appEx => _localizationService.GetString(appEx.UserFriendlyKey),
 				UnauthorizedAccessException => _localizationService.GetString("permission_denied_error"),
 				FileNotFoundException => _localizationService.GetString("file_not_found_error"),
+				DirectoryNotFoundException => _localizationService.GetString("file_not_found_error"),
 				HttpRequestException => _localizationService.GetString("network_connection_error"),
 				InvalidOperationException => _localizationService.GetString("invalid_operation_error"),
 				NoRecordWereAffectedException => _localizationService.GetString(

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   xmlns:dto="clr-namespace:TemplateServices.Core.Models.Dtos;assembly=TemplateServices.Core"
+			   xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+			   x:DataType="viewmodels:PayPalPageViewModel"
+			   x:TypeArguments="viewmodels:PayPalPageViewModel"
+               x:Class="MauiTestApp.Pages.PayPalPage"
+               Title="PayPal">
+
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="10">
+			
+		</VerticalStackLayout>
+	</Grid>
+</page:BasePage>
