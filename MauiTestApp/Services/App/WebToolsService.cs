@@ -7,13 +7,22 @@ namespace MauiTestApp.Services.App
 		IErrorHandlerService errorHandlerService
 	) : IWebToolsService
 	{
-		public async Task OpenUriAsync(Uri uri)
+		public async Task<Response> OpenUriAsync(Uri uri)
 		{
-			bool canOpen = await Launcher.CanOpenAsync(uri);
-
-			if (canOpen)
+			try
 			{
-				await Launcher.OpenAsync(uri);
+				bool canOpen = await Launcher.CanOpenAsync(uri);
+
+				if (canOpen)
+				{
+					await Launcher.OpenAsync(uri);
+				}
+
+				return Response.Success();
+			}
+			catch (Exception e)
+			{
+				return errorHandlerService.HandleError(e);
 			}
 		}
 
@@ -30,6 +39,8 @@ namespace MauiTestApp.Services.App
 						Title = title,
 					}
 				);
+
+				return Response.Success();
 			}
 			catch (Exception e)
 			{

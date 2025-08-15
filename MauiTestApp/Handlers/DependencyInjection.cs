@@ -25,6 +25,7 @@ namespace MauiTestApp.Handlers
 			services.AddSingleton<IQRCodeService, QRCoderService>();
 			services.AddSingleton<IOfflineDatabaseService, SQLitePlcDatabaseService>();
 			services.AddSingleton<IPayPalService, PayPalService>();
+			services.AddSingleton<IWebToolsService, WebToolsService>();
 
 			services.AddSingleton<ITodoItemService, TodoItemService>();
 			services.AddSingleton<ITodoItemCategoryService, TodoItemCategoryService>();
