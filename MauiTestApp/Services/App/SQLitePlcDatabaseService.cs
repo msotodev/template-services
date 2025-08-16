@@ -2,6 +2,7 @@
 using EssentialLayers.Helpers.Result;
 using MauiTestApp.Handlers.Error.Exceptions;
 using MauiTestApp.Models.Entities;
+using Microsoft.Extensions.Logging;
 using SQLite;
 using TemplateServices.Core.Services.App;
 
@@ -10,6 +11,8 @@ namespace MauiTestApp.Services.Api.Local
 	public class SQLitePlcDatabaseService : IOfflineDatabaseService
 	{
 		private readonly IErrorHandlerService _errorHandlerService;
+
+		private readonly ILogger _logger;
 
 		private readonly IPermissionsService _permissionsService;
 
@@ -21,10 +24,12 @@ namespace MauiTestApp.Services.Api.Local
 
 		public SQLitePlcDatabaseService(
 			IErrorHandlerService errorHandlerService,
+			ILogger<SQLitePlcDatabaseService> logger,
 			IPermissionsService permissionsService
 		)
 		{
 			_errorHandlerService = errorHandlerService;
+			_logger = logger;
 			_permissionsService = permissionsService;
 
 			Connection = GetConnection();
@@ -77,6 +82,8 @@ namespace MauiTestApp.Services.Api.Local
 					query, args
 				);
 
+				_logger.LogInformation("Query => {query}", query);
+
 				return ResultHelper<IList<T>>.Success([.. deferred]);
 			}
 			catch (Exception e)
@@ -92,6 +99,8 @@ namespace MauiTestApp.Services.Api.Local
 			try
 			{
 				T first = Connection.FindWithQuery<T>(query, args);
+
+				_logger.LogInformation("Query => {query}", query);
 
 				return ResultHelper<T>.Success(first);
 			}
@@ -118,8 +127,10 @@ namespace MauiTestApp.Services.Api.Local
 
 				return new();
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
+				_logger.LogError(e, "Error => {Message}", e.Message);
+
 				return new();
 			}
 		}
@@ -136,8 +147,10 @@ namespace MauiTestApp.Services.Api.Local
 
 				return query;
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
+				_logger.LogError(e, "Error => {Message}", e.Message);
+
 				return [];
 			}
 		}
@@ -170,10 +183,14 @@ namespace MauiTestApp.Services.Api.Local
 
 				List<T> queries = Connection.Query<T>(query, args);
 
+				_logger.LogInformation("Query => {query}", query);
+
 				return queries;
 			}
 			catch (Exception e)
 			{
+				_logger.LogError(e, "Error => {Message}", e.Message);
+
 				return [];
 			}
 		}
@@ -186,12 +203,16 @@ namespace MauiTestApp.Services.Api.Local
 			{
 				string tableName = typeof(T).Name;
 
+				_logger.LogInformation("Query => {query}", query);
+
 				List<T> queries = Connection.Query<T>(query, args);
 
 				return queries.FirstOrDefault()!;
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
+				_logger.LogError(e, "Error => {Message}", e.Message);
+
 				return new T();
 			}
 		}
