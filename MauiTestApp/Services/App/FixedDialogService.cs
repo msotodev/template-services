@@ -1,10 +1,13 @@
-﻿using TemplateServices.Core.Services.App;
+﻿using Microsoft.Extensions.Logging;
+using TemplateServices.Core.Services.App;
 using static TemplateServices.Core.Helpers.Constants.ButtonsConstant;
 using static TemplateServices.Core.Models.Types.DialogTypes;
 
 namespace MauiTestApp.Services.App
 {
-	public class FixedDialogService : IFixedDialogService
+	public class FixedDialogService(
+		ILogger<FixedDialogService>	logger
+	) : IFixedDialogService
 	{
 		private static Page MainPage => GetCurrentPage();
 
@@ -16,15 +19,15 @@ namespace MauiTestApp.Services.App
 			string accept = ACCEPT,
 			string cancel = CANCEL,
 			CancellationToken? cancelToken = null
-		) => MainPage.DisplayAlert(title, message, accept, cancel);
+		) => DisplayAlertAsync(title, message, accept, cancel);
 
 		public Task ErrorAsync(
 			string message, string title = "Error", string cancel = CANCEL
-		) => MainPage.DisplayAlert(title, message, cancel);
+		) => DisplayAlertAsync(title, message, cancel);
 
 		public Task InfoAsync(
 			string message, string title = "Information", string cancel = CANCEL
-		) => MainPage.DisplayAlert(title, message, cancel);
+		) => DisplayAlertAsync(title, message, cancel);
 
 		public Task<string> PromptAsync(
 			string message = "",
@@ -35,16 +38,61 @@ namespace MauiTestApp.Services.App
 			string initialValue = "",
 			int maxLength = 45,
 			KeyboardType keyboard = KeyboardType.Default
-		) => MainPage.DisplayPromptAsync(
-			title, message, accept, cancel,
-			placeholder, maxLength, GetKeyboard(keyboard), initialValue
+		) => DisplayPromptAsync(
+			message, title, accept, cancel,
+			placeholder, initialValue, maxLength, keyboard
 		);
 
 		public Task WarningAsync(
 			string message, string title = "Warning", string cancel = CANCEL
-		) => MainPage.DisplayAlert(title, message, cancel);
+		) => DisplayAlertAsync(title, message, cancel);
 
 		/**/
+
+		private async Task<bool> DisplayAlertAsync(
+			string message,
+			string title = "Warning",
+			string cancel = CANCEL,
+			string accept = ACCEPT
+		)
+		{
+			try
+			{
+				return await MainPage.DisplayAlert(title, message, accept, cancel);
+			}
+			catch (Exception e)
+			{
+				logger.LogError(e, "Error => {Message}", e.Message);
+
+				return false;
+			}
+		}
+
+		private async Task<string> DisplayPromptAsync(
+			string message = "",
+			string title = "",
+			string accept = ACCEPT,
+			string cancel = CANCEL,
+			string placeholder = "",
+			string initialValue = "",
+			int maxLength = 45,
+			KeyboardType keyboard = KeyboardType.Default
+		)
+		{
+			try
+			{
+				return await MainPage.DisplayPromptAsync(
+					title, message, accept, cancel,
+					placeholder, maxLength, GetKeyboard(keyboard), initialValue
+				);
+			}
+			catch (Exception e)
+			{
+				logger.LogError(e, "Error => {Message}", e.Message);
+
+				return string.Empty;
+			}
+		}
 
 		private static Page GetCurrentPage()
 		{
