@@ -48,7 +48,7 @@ namespace TemplateServices.Core.ViewModels
 
 				if (result.Ok)
 				{
-					result.Data.
+					//result.Data.
 				}
 			}
 		}
