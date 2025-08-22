@@ -2,7 +2,7 @@
 {
 	public interface ILoadingService
 	{
-		event EventHandler<bool> Changed;
+		event Action<bool> Changed;
 
 		bool Loading { get; }
 
