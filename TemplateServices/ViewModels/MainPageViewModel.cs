@@ -38,5 +38,10 @@ namespace TemplateServices.Core.ViewModels
 		private Task TodoItemAsync() => navigationService.NavigateToAsync(
 			RoutesConstant.TODO_ITEM
 		);
+
+		[RelayCommand]
+		private Task IconsAsync() => navigationService.NavigateToAsync(
+			RoutesConstant.ICONS
+		);
 	}
 }

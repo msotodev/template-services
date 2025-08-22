@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			   xmlns:page="clr-namespace:MauiTestApp.Pages"
+               xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+               xmlns:dto="clr-namespace:TemplateServices.Core.Models.Dtos.Icon;assembly=TemplateServices.Core"
+               x:DataType="viewmodels:IconsPageViewModel"
+               x:TypeArguments="viewmodels:IconsPageViewModel"
+               x:Class="MauiTestApp.Pages.IconsPage"
+               Title="Icons">
+
+	<Grid Style="{StaticResource grid-content}">
+		<VerticalStackLayout Spacing="5">
+			<Border Style="{StaticResource border-rounded}">
+				<Grid ColumnDefinitions="*, 50">
+					<Entry Grid.Column="0"
+						   ReturnType="Search"
+						   Text="{Binding Search}" />
+
+					<ImageButton Grid.Column="1"
+								 Source="{StaticResource close-icon-dark}"
+								 Command="{Binding ClearCommand}" />
+				</Grid>
+			</Border>
+			<Border Style="{StaticResource border-top-rounded}">
+				<CollectionView ItemsSource="{Binding Colors}" HeightRequest="400">
+					<CollectionView.ItemTemplate>
+						<DataTemplate x:DataType="dto:IconResultDto">
+							<Border Style="{StaticResource border-item-rounded}" Margin="0, 5" BackgroundColor="BlanchedAlmond">
+								<Grid ColumnDefinitions="*, 70" ColumnSpacing="5">
+									<Label Grid.Column="0">
+										<Label.FormattedText>
+											<FormattedString>
+												<Span Text="Color [" />
+												<Span Text="{Binding Name}" />
+												<Span Text="]" />
+											</FormattedString>
+										</Label.FormattedText>
+									</Label>
+									<Label Grid.Column="1" FontSize="Micro">
+										<Label.FormattedText>
+											<FormattedString>
+												<Span Text="Value [" />
+												<Span Text="{Binding Value}" />
+												<Span Text="]" />
+											</FormattedString>
+										</Label.FormattedText>
+									</Label>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+			</Border>
+		</VerticalStackLayout>
+	</Grid>
+</page:BasePage>

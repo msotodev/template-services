@@ -19,5 +19,7 @@
 		public const string PERMISSION = "permission-page";
 
 		public const string PREFERENCE = "preference-page";
+
+		public const string ICONS = "icons-page";
 	}
 }

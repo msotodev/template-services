@@ -38,6 +38,10 @@
 			<Button Text="Todo List"
 					Command="{Binding TodoItemCommand}"
 					Style="{StaticResource btn-primary}" />
+
+			<Button Text="Icons"
+					Command="{Binding IconsCommand}"
+					Style="{StaticResource btn-primary}" />
 		</VerticalStackLayout>
 	</Grid>
 

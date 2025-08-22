@@ -20,7 +20,7 @@
 
 	<Style x:Key="border-top-rounded" TargetType="Border">
 		<Setter Property="Padding" Value="15, 20, 15, 0" />
-		<Setter Property="Margin" Value="10, 0" />
+		<Setter Property="Margin" Value="0" />
 		<Setter Property="StrokeShape">
 			<Setter.Value>
 				<RoundRectangle CornerRadius="10, 10, 0, 0" />
@@ -28,9 +28,7 @@
 		</Setter>
 		<Setter Property="StrokeThickness" Value="0" />
 		<Setter Property="BackgroundColor" Value="AliceBlue" />
-		<Setter Property="Shadow" Value="10, 0, 0, White" />
-		<Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1" />
-		<Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+		<!--<Setter Property="Shadow" Value="10, 0, 0, White" />-->
 	</Style>
 
 	<Style x:Key="border-rounded" TargetType="Border">
@@ -42,9 +40,7 @@
 		</Setter>
 		<Setter Property="StrokeThickness" Value="0" />
 		<Setter Property="BackgroundColor" Value="White" />
-		<Setter Property="Shadow" Value="10, 0, 0, White" />
-		<Setter Property="AbsoluteLayout.LayoutBounds" Value="0, 0, 1, 1" />
-		<Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+		<!--<Setter Property="Shadow" Value="10, 0, 0, 0, White" />-->
 	</Style>
 	
 	<!-- Label Styles -->

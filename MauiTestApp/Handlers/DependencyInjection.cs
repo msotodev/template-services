@@ -26,6 +26,7 @@ namespace MauiTestApp.Handlers
 			services.AddSingleton<IOfflineDatabaseService, SQLitePlcDatabaseService>();
 			services.AddSingleton<IPayPalService, PayPalService>();
 			services.AddSingleton<IWebToolsService, WebToolsService>();
+			services.AddSingleton<IIconService, IconService>();
 
 			services.AddSingleton<ITodoItemService, TodoItemService>();
 			services.AddSingleton<ITodoItemCategoryService, TodoItemCategoryService>();
@@ -42,6 +43,7 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<TodoItemPageViewModel>();
 			services.AddTransient<TodoItemFormPageViewModel>();
 			services.AddTransient<TodoItemCategoryFormPageViewModel>();
+			services.AddTransient<IconsPageViewModel>();
 		}
 
 		public static void RegisterPages(IServiceCollection services)
@@ -55,6 +57,7 @@ namespace MauiTestApp.Handlers
 			services.AddTransient<TodoItemPage>();
 			services.AddTransient<TodoItemFormPage>();
 			services.AddTransient<TodoItemCategoryFormPage>();
+			services.AddTransient<IconsPage>();
 		}
 	}
 }

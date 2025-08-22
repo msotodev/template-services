@@ -22,6 +22,7 @@ namespace MauiTestApp
 			Routing.RegisterRoute(RoutesConstant.TODO_ITEM_CATEGORY_FORM, typeof(TodoItemCategoryFormPage));
 			Routing.RegisterRoute(RoutesConstant.PERMISSION, typeof(PermissionPage));
 			Routing.RegisterRoute(RoutesConstant.PREFERENCE, typeof(PreferencePage));
+			Routing.RegisterRoute(RoutesConstant.ICONS, typeof(IconsPage));
 		}
 	}
 }
