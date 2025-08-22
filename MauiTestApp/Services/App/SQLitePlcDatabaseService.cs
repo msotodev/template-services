@@ -1,6 +1,6 @@
 ﻿using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
-using MauiTestApp.Handlers.Error.Exceptions;
+using MauiTestApp.Handlers.Error;
 using MauiTestApp.Models.Entities;
 using Microsoft.Extensions.Logging;
 using SQLite;

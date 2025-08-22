@@ -21,8 +21,8 @@ namespace MauiTestApp.Services.App
 				{
 					["bluetooth_compatibility_error"] = "Bluetooth compatibility issue. Please check your device settings.",
 					["network_connection_error"] = "Network connection problem. Please check your internet connection.",
-					["permission_denied_error"] = "Permission required. Please grant the necessary permissions.",
-					["file_not_found_error"] = "Required file not found. Please try again.",
+					[PERMISSION_DENIED_ERROR] = "Permission required. Please grant the necessary permissions.",
+					[FILE_NOT_FOUND_ERROR] = "Required file not found. Please try again.",
 					["invalid_operation_error"] = "Operation cannot be completed at this time.",
 					["unknown_error"] = "An unexpected error occurred. Please try again.",
 					["error_title"] = "Error",
@@ -38,8 +38,8 @@ namespace MauiTestApp.Services.App
 				{
 					["bluetooth_compatibility_error"] = "Problema de compatibilidad de Bluetooth. Por favor revise la configuración de su dispositivo.",
 					["network_connection_error"] = "Problema de conexión de red. Por favor revise su conexión a internet.",
-					["permission_denied_error"] = "Permiso requerido. Por favor otorgue los permisos necesarios.",
-					["file_not_found_error"] = "Archivo requerido no encontrado. Por favor intente nuevamente.",
+					[PERMISSION_DENIED_ERROR] = "Permiso requerido. Por favor otorgue los permisos necesarios.",
+					[FILE_NOT_FOUND_ERROR] = "Archivo requerido no encontrado. Por favor intente nuevamente.",
 					["invalid_operation_error"] = "La operación no puede completarse en este momento.",
 					["unknown_error"] = "Ocurrió un error inesperado. Por favor intente nuevamente.",
 					["error_title"] = "Error",

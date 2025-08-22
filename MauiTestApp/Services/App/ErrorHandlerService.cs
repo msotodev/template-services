@@ -1,11 +1,10 @@
 ﻿using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
 using MauiTestApp.Handlers.Error;
-using MauiTestApp.Handlers.Error.Exceptions;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using TemplateServices.Core.Helpers.Constants;
 using TemplateServices.Core.Services.App;
+using static TemplateServices.Core.Helpers.Constants.LocalizationConstant;
 
 namespace MauiTestApp.Services.App
 {
@@ -15,7 +14,7 @@ namespace MauiTestApp.Services.App
 		ILogger<ErrorHandlerService> logger
 	) : IErrorHandlerService
 	{
-		private readonly ILocalizationService _localizationService = localizationService;
+		private readonly ILocalizationService _localization = localizationService;
 
 		private readonly ILogger<ErrorHandlerService> _logger = logger;
 
@@ -40,8 +39,8 @@ namespace MauiTestApp.Services.App
 			LogError(exception);
 
 			string userMessage = GetUserFriendlyMessage(exception);
-			string title = _localizationService.GetString("error_title");
-			string okButton = _localizationService.GetString("ok_button");
+			string title = _localization.GetString("error_title");
+			string okButton = _localization.GetString("ok_button");
 
 			await fixedDialogService.ErrorAsync(title, userMessage, okButton);
 
@@ -55,9 +54,9 @@ namespace MauiTestApp.Services.App
 			LogError(exception);
 
 			string userMessage = GetUserFriendlyMessage(exception);
-			string title = _localizationService.GetString("error_title");
-			string retryButton = _localizationService.GetString("retry_button");
-			string cancelButton = _localizationService.GetString("cancel_button");
+			string title = _localization.GetString("error_title");
+			string retryButton = _localization.GetString("retry_button");
+			string cancelButton = _localization.GetString("cancel_button");
 
 			string result = await fixedDialogService.PromptAsync(
 				title, userMessage, retryButton, cancelButton
@@ -97,16 +96,13 @@ namespace MauiTestApp.Services.App
 		{
 			return exception switch
 			{
-				AppException appEx => _localizationService.GetString(appEx.UserFriendlyKey),
-				UnauthorizedAccessException => _localizationService.GetString("permission_denied_error"),
-				FileNotFoundException => _localizationService.GetString("file_not_found_error"),
-				DirectoryNotFoundException => _localizationService.GetString("file_not_found_error"),
-				HttpRequestException => _localizationService.GetString("network_connection_error"),
-				InvalidOperationException => _localizationService.GetString("invalid_operation_error"),
-				NoRecordWereAffectedException => _localizationService.GetString(
-					LocalizationConstant.NO_RECORDS_WERE_AFFECTED_ERROR
-				),
-				_ => _localizationService.GetString("unknown_error")
+				UnauthorizedAccessException => _localization.GetString(PERMISSION_DENIED_ERROR),
+				FileNotFoundException => _localization.GetString(FILE_NOT_FOUND_ERROR),
+				DirectoryNotFoundException => _localization.GetString(FILE_NOT_FOUND_ERROR),
+				HttpRequestException => _localization.GetString(NETWORK_CONNECTION_ERROR),
+				InvalidOperationException => _localization.GetString(INVALID_OPERATION_ERROR),
+				NoRecordWereAffectedException => _localization.GetString(NO_RECORDS_WERE_AFFECTED_ERROR),
+				_ => _localization.GetString("unknown_error")
 			};
 		}
 	}
