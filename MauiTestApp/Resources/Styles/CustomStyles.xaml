@@ -18,31 +18,41 @@
 	
 	<!--  Border Styles  -->
 
-	<Style x:Key="border-top-rounded" TargetType="Border">
-		<Setter Property="Padding" Value="15, 20, 15, 0" />
+	<Style x:Key="border-base" TargetType="Border">
 		<Setter Property="Margin" Value="0" />
+		<Setter Property="StrokeThickness" Value="0" />
+		<Setter Property="BackgroundColor" Value="White" />
+	</Style>
+
+	<Style x:Key="border-top-rounded" TargetType="Border" BasedOn="{StaticResource border-base}">
+		<Setter Property="Padding" Value="10, 20, 10, 0" />
 		<Setter Property="StrokeShape">
 			<Setter.Value>
 				<RoundRectangle CornerRadius="10, 10, 0, 0" />
 			</Setter.Value>
 		</Setter>
-		<Setter Property="StrokeThickness" Value="0" />
-		<Setter Property="BackgroundColor" Value="AliceBlue" />
-		<!--<Setter Property="Shadow" Value="10, 0, 0, White" />-->
 	</Style>
 
-	<Style x:Key="border-rounded" TargetType="Border">
-		<Setter Property="Padding" Value="10, 12" />
-		<Setter Property="StrokeShape">
+	<Style x:Key="border-rounded" TargetType="Border" BasedOn="{StaticResource border-base}">
+		<Setter Property="Padding" Value="10" />
+		<Setter Property="StrokeShape" Value="RoundRectangle" />
+	</Style>
+
+	<Style x:Key="border-item-rounded" TargetType="Border" BasedOn="{StaticResource border-base}">
+		<Setter Property="Padding" Value="10" />
+		<Setter Property="Stroke" Value="Red" />
+		<Setter Property="StrokeThickness" Value="1" />
+		<Setter Property="StrokeShape" Value="RoundRectangle" />
+		<Setter Property="Shadow">
 			<Setter.Value>
-				<RoundRectangle CornerRadius="10" />
+				<Shadow Brush="Black"
+						Offset="0, 4"
+						Radius="10"
+						Opacity="0.25" />
 			</Setter.Value>
 		</Setter>
-		<Setter Property="StrokeThickness" Value="0" />
-		<Setter Property="BackgroundColor" Value="White" />
-		<!--<Setter Property="Shadow" Value="10, 0, 0, 0, White" />-->
 	</Style>
-	
+
 	<!-- Label Styles -->
 
 	<Style x:Key="badge-primary-sm" TargetType="Label">
