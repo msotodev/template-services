@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
-using TemplateServices.Core.Models.Dtos.PayPal;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models.Dtos.PayPal;
+using TemplateServices.Domain.Services.App;
 
-namespace TemplateServices.Core.ViewModels
+namespace TemplateServices.Domain.ViewModels
 {
 	public partial class PayPalPageViewModel(
 		IPayPalService payPalService

@@ -4,7 +4,7 @@ using MauiTestApp.Handlers.Error;
 using MauiTestApp.Models.Entities;
 using Microsoft.Extensions.Logging;
 using SQLite;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.Api.Local
 {

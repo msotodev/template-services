@@ -1,7 +1,7 @@
 ﻿using EssentialLayers.Helpers.Result;
-using TemplateServices.Core.Models.Dtos.PayPal;
+using TemplateServices.Domain.Models.Dtos.PayPal;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IPayPalService
 	{

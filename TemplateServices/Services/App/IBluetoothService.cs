@@ -1,7 +1,7 @@
 ﻿using EssentialLayers.Helpers.Result;
-using TemplateServices.Core.Models;
+using TemplateServices.Domain.Models;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IBluetoothService
 	{

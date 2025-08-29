@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Models
+﻿namespace TemplateServices.Domain.Models
 {
 	public class PreferenceModel
 	{

@@ -1,5 +1,5 @@
 ﻿using MauiTestApp.Pages;
-using TemplateServices.Core.Helpers.Constants;
+using TemplateServices.Domain.Helpers.Constants;
 
 namespace MauiTestApp
 {

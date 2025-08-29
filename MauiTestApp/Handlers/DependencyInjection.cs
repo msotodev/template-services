@@ -1,9 +1,9 @@
 ﻿using MauiTestApp.Pages;
 using MauiTestApp.Services.Api.Local;
 using MauiTestApp.Services.App;
-using TemplateServices.Core.Services.Api.Local;
-using TemplateServices.Core.Services.App;
-using TemplateServices.Core.ViewModels;
+using TemplateServices.Domain.Services.Api.Local;
+using TemplateServices.Domain.Services.App;
+using TemplateServices.Domain.ViewModels;
 
 namespace MauiTestApp.Handlers
 {

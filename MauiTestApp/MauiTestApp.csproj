@@ -73,7 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\TemplateServices\TemplateServices.Core.csproj" />
+	  <ProjectReference Include="..\TemplateServices\TemplateServices.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,5 +1,5 @@
-﻿using TemplateServices.Core.Services.App;
-using static TemplateServices.Core.Helpers.Constants.LocalizationConstant;
+﻿using TemplateServices.Domain.Services.App;
+using static TemplateServices.Domain.Helpers.Constants.LocalizationConstant;
 
 namespace MauiTestApp.Services.App
 {

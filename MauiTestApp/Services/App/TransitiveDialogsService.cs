@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Microsoft.Extensions.Logging;
-using TemplateServices.Core.Services.App;
-using static TemplateServices.Core.Helpers.Constants.ButtonsConstant;
+using TemplateServices.Domain.Services.App;
+using static TemplateServices.Domain.Helpers.Constants.ButtonsConstant;
 using Font = Microsoft.Maui.Font;
 
 namespace MauiTestApp.Services.App

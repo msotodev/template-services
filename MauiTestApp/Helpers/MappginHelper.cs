@@ -1,5 +1,5 @@
 ﻿using MauiTestApp.Models.Entities;
-using TemplateServices.Core.Models.Dtos;
+using TemplateServices.Domain.Models.Dtos;
 
 namespace MauiTestApp.Helpers
 {

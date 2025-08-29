@@ -1,6 +1,6 @@
 ﻿using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace MauiTestApp.Services.App

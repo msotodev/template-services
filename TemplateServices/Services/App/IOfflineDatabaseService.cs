@@ -1,6 +1,6 @@
 ﻿using EssentialLayers.Helpers.Result;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IOfflineDatabaseService
 	{

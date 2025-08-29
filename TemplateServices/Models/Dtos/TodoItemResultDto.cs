@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Models.Dtos
+﻿namespace TemplateServices.Domain.Models.Dtos
 {
 	public class TodoItemResultDto
 	{

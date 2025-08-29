@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Services.App
+﻿namespace TemplateServices.Domain.Services.App
 {
 	public interface INavigationService
 	{

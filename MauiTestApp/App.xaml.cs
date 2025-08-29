@@ -1,4 +1,4 @@
-﻿using TemplateServices.Core.Services.App;
+﻿using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp
 {

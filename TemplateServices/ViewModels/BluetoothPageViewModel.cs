@@ -3,10 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 using EssentialLayers.Helpers.Extension;
 using EssentialLayers.Helpers.Result;
 using System.Collections.ObjectModel;
-using TemplateServices.Core.Models;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models;
+using TemplateServices.Domain.Services.App;
 
-namespace TemplateServices.Core.ViewModels
+namespace TemplateServices.Domain.ViewModels
 {
 	public partial class BluetoothPageViewModel(
 		IBluetoothService bluetoothService,

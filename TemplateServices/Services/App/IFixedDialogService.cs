@@ -1,7 +1,7 @@
-﻿using static TemplateServices.Core.Helpers.Constants.ButtonsConstant;
-using static TemplateServices.Core.Models.Types.DialogTypes;
+﻿using static TemplateServices.Domain.Helpers.Constants.ButtonsConstant;
+using static TemplateServices.Domain.Models.Types.DialogTypes;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IFixedDialogService
 	{

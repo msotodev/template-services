@@ -1,9 +1,9 @@
 ﻿using EssentialLayers.Helpers.Result;
 using MauiTestApp.Helpers;
 using MauiTestApp.Models.Entities;
-using TemplateServices.Core.Models.Dtos;
-using TemplateServices.Core.Services.Api.Local;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models.Dtos;
+using TemplateServices.Domain.Services.Api.Local;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.Api.Local
 {

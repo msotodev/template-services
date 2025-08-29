@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Models.Types
+﻿namespace TemplateServices.Domain.Models.Types
 {
 	public static class QRCodeTypes
 	{

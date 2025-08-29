@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Models.Dtos.Icon
+﻿namespace TemplateServices.Domain.Models.Dtos.Icon
 {
 	public class IconResultDto
 	{

@@ -1,7 +1,7 @@
 ﻿using MauiTestApp.Handlers.Icons;
 using System.Reflection;
-using TemplateServices.Core.Models.Dtos.Icon;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models.Dtos.Icon;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.App
 {

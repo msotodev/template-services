@@ -2,7 +2,7 @@
 <page:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 			   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			   xmlns:page="clr-namespace:MauiTestApp.Pages"
-			   xmlns:viewmodels="clr-namespace:TemplateServices.Core.ViewModels;assembly=TemplateServices.Core"
+			   xmlns:viewmodels="clr-namespace:TemplateServices.Domain.ViewModels;assembly=TemplateServices.Domain"
 			   x:Class="MauiTestApp.Pages.PermissionPage"
 			   x:DataType="viewmodels:PermissionPageViewModel"
 			   x:TypeArguments="viewmodels:PermissionPageViewModel"

@@ -3,8 +3,8 @@ using EssentialLayers.Helpers.Result;
 using Microsoft.Extensions.Options;
 using System.Text;
 using System.Text.Json;
-using TemplateServices.Core.Models.Dtos.PayPal;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models.Dtos.PayPal;
+using TemplateServices.Domain.Services.App;
 using Uri = System.Uri;
 
 namespace MauiTestApp.Services.App

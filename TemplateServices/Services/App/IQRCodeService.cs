@@ -1,6 +1,6 @@
-﻿using static TemplateServices.Core.Models.Types.QRCodeTypes;
+﻿using static TemplateServices.Domain.Models.Types.QRCodeTypes;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IQRCodeService
 	{

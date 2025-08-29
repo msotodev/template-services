@@ -2,9 +2,9 @@
 using QRCoder;
 using SkiaSharp;
 using System.Collections;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 using static QRCoder.QRCodeGenerator;
-using static TemplateServices.Core.Models.Types.QRCodeTypes;
+using static TemplateServices.Domain.Models.Types.QRCodeTypes;
 using Color = System.Drawing.Color;
 
 namespace MauiTestApp.Services.App

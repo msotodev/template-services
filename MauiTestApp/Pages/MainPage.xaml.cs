@@ -1,4 +1,4 @@
-﻿using TemplateServices.Core.ViewModels;
+﻿using TemplateServices.Domain.ViewModels;
 
 namespace MauiTestApp.Pages
 {

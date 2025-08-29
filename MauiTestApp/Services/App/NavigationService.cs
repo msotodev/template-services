@@ -1,6 +1,6 @@
 ﻿using EssentialLayers.Helpers.Extension;
 using Microsoft.Extensions.Logging;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.App
 {

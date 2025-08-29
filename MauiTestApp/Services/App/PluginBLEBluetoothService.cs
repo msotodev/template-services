@@ -3,8 +3,8 @@ using EssentialLayers.Helpers.Result;
 using Plugin.BLE;
 using Plugin.BLE.Abstractions;
 using Plugin.BLE.Abstractions.Contracts;
-using TemplateServices.Core.Models;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.App
 {

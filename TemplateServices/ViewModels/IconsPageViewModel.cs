@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using EssentialLayers.Helpers.Extension;
 using System.Collections.ObjectModel;
-using TemplateServices.Core.Models.Dtos.Icon;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Models.Dtos.Icon;
+using TemplateServices.Domain.Services.App;
 
-namespace TemplateServices.Core.ViewModels
+namespace TemplateServices.Domain.ViewModels
 {
 	public partial class IconsPageViewModel(
 		IIconService iconService

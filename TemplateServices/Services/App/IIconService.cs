@@ -1,6 +1,6 @@
-﻿using TemplateServices.Core.Models.Dtos.Icon;
+﻿using TemplateServices.Domain.Models.Dtos.Icon;
 
-namespace TemplateServices.Core.Services.App
+namespace TemplateServices.Domain.Services.App
 {
 	public interface IIconService
 	{

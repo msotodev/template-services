@@ -2,12 +2,12 @@
 using CommunityToolkit.Mvvm.Input;
 using EssentialLayers.Helpers.Extension;
 using System.Collections.ObjectModel;
-using TemplateServices.Core.Helpers.Constants;
-using TemplateServices.Core.Models.Dtos;
-using TemplateServices.Core.Services.Api.Local;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Helpers.Constants;
+using TemplateServices.Domain.Models.Dtos;
+using TemplateServices.Domain.Services.Api.Local;
+using TemplateServices.Domain.Services.App;
 
-namespace TemplateServices.Core.ViewModels
+namespace TemplateServices.Domain.ViewModels
 {
 	public partial class TodoItemPageViewModel(
 		IFixedDialogService fixedDialogService,

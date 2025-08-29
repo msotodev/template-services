@@ -1,5 +1,5 @@
 ﻿using EssentialLayers.Helpers.Extension;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 
 namespace MauiTestApp.Services.App
 {

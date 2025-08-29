@@ -1,6 +1,6 @@
 ﻿using MauiTestApp.Extensions;
 using SkiaSharp;
-using TemplateServices.Core.Services.App;
+using TemplateServices.Domain.Services.App;
 using Color = System.Drawing.Color;
 
 namespace MauiTestApp.Services.App

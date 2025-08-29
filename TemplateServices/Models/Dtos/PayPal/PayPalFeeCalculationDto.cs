@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Models.Dtos.PayPal
+﻿namespace TemplateServices.Domain.Models.Dtos.PayPal
 {
 	public class PayPalFeeCalculationDto
 	{

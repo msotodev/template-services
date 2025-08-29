@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using TemplateServices.Core.Services.App;
-using static TemplateServices.Core.Helpers.Constants.ButtonsConstant;
-using static TemplateServices.Core.Models.Types.DialogTypes;
+using TemplateServices.Domain.Services.App;
+using static TemplateServices.Domain.Helpers.Constants.ButtonsConstant;
+using static TemplateServices.Domain.Models.Types.DialogTypes;
 
 namespace MauiTestApp.Services.App
 {

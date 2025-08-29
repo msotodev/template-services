@@ -1,4 +1,4 @@
-﻿namespace TemplateServices.Core.Helpers.Constants
+﻿namespace TemplateServices.Domain.Helpers.Constants
 {
 	public static class ButtonsConstant
 	{
