@@ -13,22 +13,18 @@ namespace MauiTestApp.Services.App
 		{
 			parameters ??= new Dictionary<string, object>();
 
-#if DEBUG || SPCHOLULADEBUG || TEZIUTLANDEBUG || TLATLAUQUITEPECDEBUG || ZACAPOAXTLADEBUG
 			logger.LogInformation(
 				"Backing to back with params: {params}", parameters.Serialize()
 			);
-#endif
 
 			return Shell.Current.GoToAsync("..", true, parameters);
 		}
 
 		public async Task NavigateToAsync(string route, IDictionary<string, object>? parameters = null)
 		{
-#if DEBUG || SPCHOLULADEBUG || TEZIUTLANDEBUG || TLATLAUQUITEPECDEBUG || ZACAPOAXTLADEBUG
 			logger.LogInformation(
 				"Navigating to: {route} with params: {params}", route, parameters.Serialize()
 			);
-#endif
 
 			parameters ??= new Dictionary<string, object>();
 
